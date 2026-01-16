@@ -233,4 +233,4 @@ Flutter - Framework de UI
 
 Comunidade open source 💙
 
-<div align="center"> ⭐ Se este projeto te ajudou, considere dar uma estrela! </div> ```
+<div align="center"> ⭐ Se este projeto te ajudou, considere dar uma estrela!</div>

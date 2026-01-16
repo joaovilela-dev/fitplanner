@@ -94,7 +94,6 @@ class _AguaScreenState extends State<AguaScreen> with TickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Header com animação
                 FadeTransition(
                   opacity: _headerOpacity,
                   child: SlideTransition(
@@ -103,7 +102,6 @@ class _AguaScreenState extends State<AguaScreen> with TickerProviderStateMixin {
                   ),
                 ),
 
-                // Imagem central com ícone
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 32),
                   child: Center(
@@ -152,7 +150,6 @@ class _AguaScreenState extends State<AguaScreen> with TickerProviderStateMixin {
                   ),
                 ),
 
-                // Descrição principal
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: TweenAnimationBuilder<double>(
@@ -218,7 +215,6 @@ class _AguaScreenState extends State<AguaScreen> with TickerProviderStateMixin {
 
                 const SizedBox(height: 32),
 
-                // Título dos benefícios
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Row(
@@ -249,7 +245,6 @@ class _AguaScreenState extends State<AguaScreen> with TickerProviderStateMixin {
 
                 const SizedBox(height: 20),
 
-                // Cards de benefícios
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
@@ -291,7 +286,6 @@ class _AguaScreenState extends State<AguaScreen> with TickerProviderStateMixin {
 
                 const SizedBox(height: 32),
 
-                // Recomendação de consumo
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: TweenAnimationBuilder<double>(

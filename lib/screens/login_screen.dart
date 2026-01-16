@@ -37,13 +37,11 @@ class _LoginScreenState extends State<LoginScreen>
   void initState() {
     super.initState();
 
-    // Animação sutil de ambiente
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 6),
     )..repeat(reverse: true);
 
-    // Animação de entrada de conteúdo
     _contentController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
@@ -219,7 +217,6 @@ class _LoginScreenState extends State<LoginScreen>
             ),
           ),
 
-          // Partículas discretas de fundo
           CustomPaint(
             painter: _ParticlePainter(_particles, size),
             size: Size.infinite,

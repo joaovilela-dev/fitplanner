@@ -1,4 +1,3 @@
-// ajuda_screen.dart - Tela de Ajuda Premium
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

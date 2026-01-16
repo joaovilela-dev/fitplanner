@@ -1,4 +1,3 @@
-// main_menu_screen.dart - DESIGN PREMIUM APRIMORADO
 import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:ui';
@@ -14,7 +13,6 @@ import 'chat_screen.dart';
 import 'perfil_screen.dart';
 import 'ajuda_screen.dart';
 
-/// ========== SISTEMA DE CORES APRIMORADO ==========
 class AppColors {
   static const darkBg = Color(0xFF0A0E14);
   static const darkCard = Color(0xFF0F151C);
@@ -57,7 +55,6 @@ class AppDimens {
   static const double iconSizeLarge = 28.0;
 }
 
-/// ========== MODELO DE FEATURE ==========
 class FeatureModel {
   final String title;
   final String subtitle;
@@ -76,7 +73,6 @@ class FeatureModel {
   });
 }
 
-/// ========== PARTÍCULAS ANIMADAS NO BACKGROUND ==========
 class AnimatedParticles extends StatefulWidget {
   const AnimatedParticles({super.key});
 
@@ -169,7 +165,6 @@ class ParticlePainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
 
-/// ========== BOTÃO PREMIUM 3D ULTRA MELHORADO ==========
 class Premium3DButton extends StatefulWidget {
   final FeatureModel feature;
   final VoidCallback onTap;
@@ -423,7 +418,6 @@ class _Premium3DButtonState extends State<Premium3DButton>
   }
 }
 
-/// ========== HEADER SIMPLIFICADO SEM SHIMMER ==========
 class AnimatedLogoHeader extends StatelessWidget {
   const AnimatedLogoHeader({super.key});
 

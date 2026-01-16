@@ -5,9 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'login_screen.dart';
 
-/// =========================== 
-/// SISTEMA DE CORES REFINADO
-/// ===========================
 class AppColors {
   static const darkBg = Color(0xFF0A0E14);
   static const darkCard = Color(0xFF0F151C);

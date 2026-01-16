@@ -21,7 +21,6 @@ Future<void> main() async {
   // Inicializa datas pt_BR
   await initializeDateFormatting('pt_BR', null);
 
-  // Mantém apenas retrato
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -111,7 +110,6 @@ class _FitPlannerAppState extends State<FitPlannerApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
 
-      // TEMA FIXO
       theme: ThemeData(
         fontFamily: 'Inter',
         scaffoldBackgroundColor: Colors.grey[50],

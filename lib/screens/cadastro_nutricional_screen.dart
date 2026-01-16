@@ -144,14 +144,13 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
     final request = http.MultipartRequest('POST', uri);
 
     try {
-      // Adicionar a imagem com contentType explícito
       if (kIsWeb) {
         request.files.add(
           http.MultipartFile.fromBytes(
             'image', 
             _fotoBytes!, 
             filename: 'foto.jpg',
-            contentType: http_parser.MediaType('image', 'jpeg'), // 🔧 CORREÇÃO
+            contentType: http_parser.MediaType('image', 'jpeg'), 
           ),
         );
         debugPrint('Imagem web adicionada: ${_fotoBytes!.length} bytes');
@@ -160,13 +159,12 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
           await http.MultipartFile.fromPath(
             'image', 
             _foto!.path,
-            contentType: http_parser.MediaType('image', 'jpeg'), // 🔧 CORREÇÃO
+            contentType: http_parser.MediaType('image', 'jpeg'), 
           ),
         );
         debugPrint('Imagem arquivo adicionada: ${_foto!.path}');
       }
 
-      // Adicionar campos - VALIDAÇÃO IMPORTANTE
       if (_idadeController.text.isEmpty || 
           _pesoController.text.isEmpty || 
           _alturaController.text.isEmpty) {
@@ -249,7 +247,6 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
         return result;
         
       } else if (response.statusCode == 400) {
-        // Tentar extrair mensagem de erro do body
         try {
           final errorData = json.decode(body);
           final detail = errorData['detail'] ?? errorData['error'] ?? 'Erro desconhecido';
@@ -331,7 +328,6 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
             throw Exception('Erro ao processar a foto. Nenhum resultado retornado.');
           }
           
-          // Converter com segurança o valor do BF
           final bfValue = iaResult['body_fat_percentage'];
           if (bfValue == null) {
             throw Exception('A IA não retornou um percentual de gordura válido.');
@@ -339,7 +335,6 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
           
           bfFinal = (bfValue as num).toDouble();
           
-          // Validar se o valor está em um range razoável
           if (bfFinal < 0 || bfFinal > 100) {
             throw Exception('Valor de BF fora do esperado: ${bfFinal.toStringAsFixed(1)}%');
           }
@@ -351,7 +346,6 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
             _bfEstimadoPorIA = true;
           });
           
-          // Mostrar sucesso da análise
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -394,7 +388,6 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
           debugPrint('❌ Erro na análise da imagem: $e');
           
           if (mounted) {
-            // Extrair mensagem de erro limpa
             String mensagemErro = e.toString().replaceAll('Exception: ', '');
             
             ScaffoldMessenger.of(context).showSnackBar(
@@ -448,7 +441,6 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
             );
           }
           
-          // NÃO salvar e NÃO permitir continuar
           if (mounted) setState(() => _isLoading = false);
           return;
         }
@@ -457,7 +449,6 @@ class _CadastroNutricionalState extends State<CadastroNutricional>
         debugPrint('Usando BF manual: ${bfFinal.toStringAsFixed(1)}%');
       }
 
-      // Salvar no Firestore
       debugPrint('Salvando dados no Firestore...');
       
       final dadosNutricionais = {
